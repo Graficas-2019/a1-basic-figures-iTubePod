@@ -234,10 +234,7 @@ function createSphere(gl, radius)
     verts.push(0,0,0);
     for (var i = 40; i < 320; i++)
     {
-
-        verts.push(radius * Math.cos(i/360 * 2.0 * Math.PI));
-        verts.push(radius * Math.sin(i/360 * 2.0 * Math.PI));
-
+        verts.push(radius * Math.cos(i * Math.PI/180),radius * Math.sin(i * Math.PI/180),0);
     }
     /*var vertexCount = 100;
     for (var i = 0; i < vertexCount; i++)
@@ -251,6 +248,6 @@ function createSphere(gl, radius)
     verts.push(verts[1]);
     //vertexCount += 1;
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(verts), gl.STATIC_DRAW);
-    var sphere = {buffer:vertexBuffer, vertSize:2, nVerts: verts.length , primtype:gl.TRIANGLE_FAN};
+    var sphere = {buffer:vertexBuffer, vertSize:3, nVerts: verts.length /3, primtype:gl.TRIANGLE_FAN};
     return sphere;
 }        
